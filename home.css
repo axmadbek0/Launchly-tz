@@ -1,0 +1,360 @@
+/* 1. Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0a0e1a;
+    --surface: #111827;
+    --primary: #00f5d4;
+    --accent: #8338ec;
+    --text: #ffffff;
+    --text-secondary: #94a3b8;
+    --border: #1e293b;
+    --danger: #ef4444;
+    --warning: #fbbf24;
+    --success: #06ffa5;
+}
+[data-theme="light"] {
+    --bg: #faf9f6;
+    --surface: #ffffff;
+    --surface-hover: #f3f4f6;
+    --primary: #ff006e;
+    --primary-glow: rgba(255, 0, 110, 0.2);
+    --secondary: #00f5d4;
+    --success: #00c853;
+    --text: #1a1a2e;
+    --text-dim: #64748b;
+    --border: #e2e8f0;
+    --accent: #3a86ff;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* 2. Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background: rgba(10, 14, 26, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.logo-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.logo-text {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: var(--bg);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: opacity 0.3s;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+/* 3. Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 120px 24px 60px; /* Tepadan joy ko'paytirildi navbar uchun */
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 16px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: var(--bg);
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0 10px 30px rgba(0, 245, 212, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-main:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(0, 245, 212, 0.4);
+}
+
+.arrow {
+    transition: transform 0.3s;
+}
+
+.btn-main:hover .arrow {
+    transform: translateX(4px);
+}
+
+/* 4. Dashboard Mockup */
+.hero-visual {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard-mockup {
+    width: 100%;
+    max-width: 400px;
+    background: var(--surface);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.mockup-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--danger);
+}
+
+.dots span:nth-child(2) { background: var(--warning); }
+.dots span:nth-child(3) { background: var(--success); }
+
+.mockup-title {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-left: 8px;
+}
+
+.mockup-content {
+    display: flex;
+    min-height: 220px;
+}
+
+.sidebar {
+    width: 100px;
+    background: var(--bg);
+    padding: 16px 12px;
+    border-right: 1px solid var(--border);
+}
+
+.nav-item {
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.nav-item.active {
+    background: var(--primary);
+    color: var(--bg);
+    font-weight: 600;
+}
+
+.main-area {
+    flex: 1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task-card {
+    background: var(--bg);
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+.task-title {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.task-card.completed {
+    opacity: 0.6;
+}
+
+.task-card.completed .task-title {
+    text-decoration: line-through;
+}
+
+/* 5. Responsive Design */
+
+/* Small phones */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .logo-text {
+        display: none; /* Kichik ekranda faqat belgi qoladi */
+    }
+
+    .dashboard-mockup {
+        max-width: 320px;
+    }
+}
+
+/* Tablets and Desktop */
+@media (min-width: 768px) {
+    .hero {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 140px 60px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .hero-content {
+        text-align: left;
+        flex: 1;
+    }
+    
+    .hero-title {
+        font-size: 56px;
+    }
+
+    .hero-visual {
+        flex: 1;
+        justify-content: flex-end;
+    }
+
+    .dashboard-mockup {
+        max-width: 500px;
+    }
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: var(--surface); /* O'zgaruvchilaringizga mos */
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+}
+
+#themeBtn {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+#themeBtn:hover {
+    transform: scale(1.05);
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(0, 245, 212, 0.2);
+}
+
+#themeBtn:active {
+    transform: scale(0.95);
+}
